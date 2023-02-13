@@ -1,0 +1,60 @@
+(002576) [00:20:25] % mount -o bind /home/art/.local/share/waydroid/data /var/lib/waydroid/data
+(002576) [00:20:25] % chmod 777 -R /dev/ashmem
+(002576) [00:20:25] % chmod 777 -R /dev/dri
+(002576) [00:20:25] % chmod 777 -R /dev/fb0
+(002576) [00:20:25] % lxc-start -P /var/lib/waydroid/lxc -F -n waydroid -- /init
+(002576) [00:20:25] New background process: pid=15343, output=background
+(002576) [00:20:25] Save session config: /var/lib/waydroid/session.cfg
+(015242) [00:20:34] waydroidusermonitor: Received transaction: 1
+(015242) [00:20:34] Android with user 0 is ready
+(002576) [00:22:03] waydroidhardware: Received transaction: 3
+(002576) [00:22:03] % lxc-freeze -P /var/lib/waydroid/lxc -n waydroid
+(002576) [00:22:03] Save session config: /var/lib/waydroid/session.cfg
+(026840) [01:19:11] % lxc-stop -P /var/lib/waydroid/lxc -n waydroid -k
+lxc-start: waydroid: ../src/lxc/conf.c: run_buffer: 322 Script exited with status 126
+lxc-start: waydroid: ../src/lxc/start.c: lxc_end: 985 Failed to run lxc.hook.post-stop for container "waydroid"
+(026840) [01:19:11] Save session config: /var/lib/waydroid/session.cfg
+(026840) [01:19:11] % /usr/lib/waydroid/data/scripts/waydroid-net.sh stop
+vnic is waydroid0
+(026840) [01:19:12] % umount /var/lib/waydroid/rootfs/vendor/waydroid.prop
+(026840) [01:19:12] % umount /var/lib/waydroid/rootfs/vendor
+(026840) [01:19:12] % umount /var/lib/waydroid/rootfs
+(026840) [01:19:12] % umount /var/lib/waydroid/data
+(027727) [01:19:12] UserMonitor service is not even started
+(027727) [01:19:12] Clipboard service is not even started
+(002655) [01:20:46] % mkdir -p /dev/binderfs
+(002655) [01:20:46] % mount -t binder binder /dev/binderfs
+(002655) [01:20:46] % ln -s /dev/binderfs/anbox-hwbinder /dev/binderfs/anbox-vndbinder /dev/binderfs/binder /dev/binderfs/binder-control /dev/
+ln: failed to create symbolic link '/dev/binder': File exists
+(002655) [01:20:46] % chmod 666 -R /dev/binder
+(002655) [01:20:46] % chmod 666 -R /dev/anbox-vndbinder
+(002655) [01:20:46] % chmod 666 -R /dev/anbox-hwbinder
+(002655) [01:20:46] Container manager is waiting for session to load
+(011472) [10:05:36] Save session config: /var/lib/waydroid/session.cfg
+(011472) [10:05:36] UserMonitor service is not even started
+(011472) [10:05:36] Clipboard service is not even started
+(002655) [10:05:37] % /usr/lib/waydroid/data/scripts/waydroid-net.sh start
+vnic is waydroid0
+(002655) [10:05:37] % mount /var/lib/waydroid/images/system.img /var/lib/waydroid/rootfs
+(002655) [10:05:37] % mount -o remount,ro /var/lib/waydroid/images/system.img /var/lib/waydroid/rootfs
+(002655) [10:05:37] % mount /var/lib/waydroid/images/vendor.img /var/lib/waydroid/rootfs/vendor
+(002655) [10:05:37] % mount -o remount,ro /var/lib/waydroid/images/vendor.img /var/lib/waydroid/rootfs/vendor
+(002655) [10:05:37] % mount -o bind /var/lib/waydroid/waydroid.prop /var/lib/waydroid/rootfs/vendor/waydroid.prop
+(002655) [10:05:37] Save config: /var/lib/waydroid/waydroid.cfg
+(002655) [10:05:37] % mount -o bind /home/art/.local/share/waydroid/data /var/lib/waydroid/data
+(002655) [10:05:37] % chmod 777 -R /dev/ashmem
+(002655) [10:05:37] % chmod 777 -R /dev/dri
+(002655) [10:05:37] % chmod 777 -R /dev/fb0
+(002655) [10:05:37] % lxc-start -P /var/lib/waydroid/lxc -F -n waydroid -- /init
+(002655) [10:05:37] New background process: pid=11594, output=background
+(002655) [10:05:39] Save session config: /var/lib/waydroid/session.cfg
+(011472) [10:05:47] waydroidusermonitor: Received transaction: 1
+(011472) [10:05:47] Android with user 0 is ready
+(021234) [10:33:47] % tail -n 60 -F /var/lib/waydroid/waydroid.log
+(021234) [10:33:47] *** output passed to waydroid stdout, not to this log ***
+(011472) [10:34:11] waydroidclipboard: Received transaction: 2
+(011472) [10:34:11] Could not setup clipboard
+(021697) [10:34:22] % tail -n 60 -F /var/lib/waydroid/waydroid.log
+(021697) [10:34:22] *** output passed to waydroid stdout, not to this log ***
+(021709) [10:34:36] % tail -n 60 -F /var/lib/waydroid/waydroid.log
+(021709) [10:34:36] *** output passed to waydroid stdout, not to this log ***
